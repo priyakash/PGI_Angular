@@ -1,0 +1,8 @@
+<div>
+    <h3>Composant enfant :</h3>
+    <ul>
+        <li *ngFor="let num of numbers" (click)="sendNumberToParent(num)">
+            {{num}}
+        </li>
+    </ul>
+</div>

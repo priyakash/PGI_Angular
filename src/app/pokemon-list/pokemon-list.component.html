@@ -1,0 +1,21 @@
+<div class="comp">
+    <app-pokemon-search (pokemonFromSearch)="catchPokemon($event)" ></app-pokemon-search>
+</div>
+<section>
+    <div class="comp">
+        <h3>Combien de pokémons souhaitez-vous afficher ?</h3>
+        <input type="number" name="number-of-pokemons-to-display" id="number-of-pokemons-to-display" [(ngModel)]="numberOfPokemonsToDisplay">
+        <button (click)="getFromApi()">Chercher sur l'API</button>
+        <ul>
+            <li *ngFor="let pokemon of pokemonList" (click)="getOnePokemonFromApi(pokemon.name)">
+                {{pokemon.name}}
+            </li>
+        </ul>
+        
+        <hr>
+    </div>
+    <div class="comp">
+        <app-pokemon-detail [pokemonChild]="pokemon"></app-pokemon-detail>
+    </div>
+
+</section>

@@ -1,0 +1,66 @@
+<!-- nav bar -->
+
+
+<!-- 
+<div class="topnav" id="nav-container">
+    <a class="navbar-brand" href="movie" style="font-family: 'Sofia'">MOVIECRITIC</a>
+
+  <nav>  <a class="nav-link" href="#" routerLink="/about" routerLinkActive="active" >About</a> </nav>
+    <a class="nav-link" routerLink="/movie" routerLinkActive="active" href="#about">Home</a>
+    <a class="nav-link" routerLink="/help" routerLinkActive="active" href="#about">Community</a>
+    <a  class="nav-link" href="#about">Blog</a>
+     <a class="nav-link" *ngIf="!loggedIn"routerLink="/login"  routerLinkActive="active" href="#login"> Login </a>
+    <span  class="navbar-text">
+      {{ loginusername }}
+    </span>
+    <a class="nav-link" *ngIf="loggedIn" routerLink="/login"  routerLinkActive="active" href="#login"> {{ loginusername }} </a> 
+        <a class="nav-link"  *ngIf="loggedIn" routerLink="/login"  routerLinkActive="active" href="#login"> Logout</a>
+ 
+</div> -->
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ 
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#about">MOVIECRITIC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" routerLink="/about" routerLinkActive="active" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/movie" routerLinkActive="active" href="#about">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/help" routerLinkActive="active" href="#about">Community</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" *ngIf="!loggedIn" routerLink="/login"  routerLinkActive="active" href="#login">Login</a>
+        </li>
+       
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" *ngIf="loggedIn" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ loginusername }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/help" routerLinkActive="active">My Favorites</a></li>
+            <li><a class="dropdown-item"routerLink="/help" routerLinkActive="active">My reviews</a></li>
+            
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" (click)="onlogout()" *ngIf="loggedIn" routerLink="/login"  routerLinkActive="active" href="#login">Logout</a>
+        </li>
+        
+      </ul>
+     
+    </div>
+  </div>
+
+</nav>

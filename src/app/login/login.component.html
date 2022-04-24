@@ -1,0 +1,139 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container pb-5 mb-sm-4">
+    <div class="row pt-5">
+        <div class="col-md-6 pt-sm-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-1">Sign in</h2>
+                    <div class="d-sm-flex align-items-center py-3">
+                        <h3 class="h6 font-weight-semibold opacity-70 mb-3 mb-sm-2 mr-sm-3">With social account:</h3>
+                        <div>
+                            <a class="social-btn sb-facebook mr-2 mb-2" href="#" data-toggle="tooltip" title="" data-original-title="Sign in with Facebook">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="social-btn sb-twitter mr-2 mb-2" href="#" data-toggle="tooltip" title="" data-original-title="Sign in with Twitter">
+                                <i class="fa fa-twitter"></i> 
+                            </a>
+                            <a class="social-btn sb-linkedin mr-2 mb-2" href="#" data-toggle="tooltip" title="" data-original-title="Sign in with LinkedIn">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <h3 class="h6 font-weight-semibold opacity-70 pt-4 pb-2">Or using form below</h3>
+                    <form  #loginForm="ngForm" id="formmogin" (ngSubmit)="loginuser()" class="needs-validation" novalidate="">
+                        <!-- <app-nav-bar [username]="username"></app-nav-bar> -->
+                        <small class="text-danger">{{msg}}</small>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend"><span class="input-group-text">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
+                                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                  <polyline points="22,6 12,13 2,6"></polyline></svg></span></div>
+                            <input class="form-control" name="emailid"  type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email" [(ngModel)]="user.emailid" required  #email="ngModel"
+                            [class.is-invalid]="email.invalid && email.touched">
+                           
+                            <div class="invalid-feedback" >Please enter valid email address!</div>
+                            
+                        
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend"><span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></span></div>
+                            <input class="form-control" name="pwd" type="password" placeholder="Password" [(ngModel)]="user.pwd"  required  #pwd="ngModel"
+                            [class.is-invalid]="pwd.invalid && pwd.touched">
+                            <div class="invalid-feedback">Please enter valid password!</div>
+                        </div>
+                        <div class="d-flex flex-wrap justify-content-between">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" checked="" id="remember_me">
+                                <label class="custom-control-label" for="remember_me">Remember me</label>
+                            </div><a class="nav-link-inline font-size-sm" href="account-password-recovery.html">Forgot password?</a>
+                        </div>
+                        <hr class="mt-4">
+                        <div class="text-right pt-4">
+                            <button class="btn btn-primary" [disabled]="loginForm.invalid" type="submit">Sign In</button>
+                            <!-- <app-nav-bar [loginusername]="loginusername"></app-nav-bar> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6 pt-5 pt-sm-3">
+            <h2 class="h4 mb-3">No account? Sign up</h2>
+            <p class="text-muted mb-4">Registration takes less than a minute but  you get all benefits from your moviecritic account</p>
+            <form  #signupform="ngForm" id="formsign" class="needs-validation" (ngSubmit)="registeruser()" novalidate="">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="reg-fn">User Name</label>
+                            <input class="form-control" type="text" required="" name="username"  #username="ngModel" [(ngModel)]="user.username" 
+                            [class.is-invalid]="username.invalid && username.touched">
+                            <div class="invalid-feedback">Please enter your user name!</div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="reg-ln">Last Name</label>
+                            <input class="form-control" type="text" required="" id="reg-ln">
+                            <div class="invalid-feedback">Please enter your last name!</div>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="reg-email">E-mail Address</label>
+                            <input class="form-control" type="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailidsu" #emailidsu="ngModel" [(ngModel)]="user.emailid"
+                            [class.is-invalid]="emailidsu.invalid && emailidsu.touched">
+                            <div class="invalid-feedback">Please enter valid email address!</div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="reg-phone">Phone Number</label>
+                            <input class="form-control" type="text" required="" id="reg-phone">
+                            <div class="invalid-feedback">Please enter your phone number!</div>
+                        </div>
+                    </div> -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="reg-password">Password</label>
+                            <input class="form-control" type="password" required  name="passwordsu" #passwordsu="ngModel" [(ngModel)]="user.pwd" 
+                            [class.is-invalid]="passwordsu.invalid && passwordsu.touched">
+                            <div class="invalid-feedback">Please enter password!</div>
+                        </div>
+                    </div>
+                     <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="reg-password-confirm">Confirm Password</label>
+                            <input class="form-control" type="password" required name="cpassword" #cpassword="ngModel" (ngModel)="user.pwd" >
+                            <small class="text-danger" [class.d-none]="(cpassword.value==passwordsu.value)|| cpassword.untouched">Passwords do not match!</small>
+                        </div>
+                    </div> 
+                </div>
+                <div class="text-right">
+                    <button [disabled]="signupform.invalid" class="btn btn-primary" type="submit">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+  <h3 class="h6 font-weight-semibold opacity-70 mb-3 mb-sm-2 mr-sm-3" >Benefits of your free MOVIECRITIC account<br></h3>  
+  <h3 class="h6 font-weight-semibold opacity-70 mb-3 mb-sm-2 mr-sm-3" >Personalized Recommendations.<br></h3> 
+    <p class="text-muted mb-4"> Discover shows you'll love.<br> </p>
+    <h3 class="h6 font-weight-semibold opacity-70 mb-3 mb-sm-2 mr-sm-3" >Your Watchlist.<br></h3> 
+ 
+    <p class="text-muted mb-4">Track everything you want to watch and receive e-mail when movies open in theaters.<br> </p>
+    <h3 class="h6 font-weight-semibold opacity-70 mb-3 mb-sm-2 mr-sm-3" >Your Ratings<br></h3> 
+    <p class="text-muted mb-4">Rate and remember everything you've seen.<br> </p>
+   
+    <h3 class="h6 font-weight-semibold opacity-70 mb-3 mb-sm-2 mr-sm-3" >Contribute to MOVIECRITIC<br></h3> 
+    <p class="text-muted mb-4">Add data that will be seen by millions of people and get cool badges.<br> </p>
+   
+ 
+
+ 
+</div>

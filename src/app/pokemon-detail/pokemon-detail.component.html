@@ -1,0 +1,33 @@
+<h3>Le détail du pokémon :</h3>
+<ng-container *ngIf="pokemonChild">
+    <img *ngIf="pokemonChild.sprites.back_default" [src]="pokemonChild.sprites.back_default" alt="photo">
+    <img [src]="pokemonChild.sprites.front_default" alt="photo">
+    <img *ngIf="pokemonChild.sprites.back_shiny" [src]="pokemonChild.sprites.back_shiny" alt="photo">
+    <img [src]="pokemonChild.sprites.front_shiny" alt="photo">
+
+    <button
+     *ngFor="let ty of pokemonChild.types"
+     [ngStyle]="{'background-color': getColor(ty.type.name)}"
+      class="type">
+      {{ty.type.name}}
+    </button>
+    <!-- [ngStyle]="{'background-color': ty.type.name === 'water' ? 'blue' : ty.type.name === 'grass' ? 'green' : ty.type.name === 'poison' ? 'purple' : ty.type.name === 'fire' ? 'red' : ty.type.name === 'flying' ? '#A890F0' : ''}" -->
+
+
+    <h4>{{pokemonChild.name}}</h4>
+    <p>{{pokemonChild.height}}</p>
+    <p>{{pokemonChild.weight}}</p>   
+    <p>Attaques apprises :</p>
+    <ul>
+        <li *ngFor="let move of pokemonChild.moves">
+            {{move.move.name}}
+        </li>
+        
+    </ul> 
+    <p>Capacités spéciales :</p>
+    <ul>
+        <li *ngFor="let ab of pokemonChild.abilities">
+            {{ab.ability.name}}
+        </li>
+    </ul>
+</ng-container>

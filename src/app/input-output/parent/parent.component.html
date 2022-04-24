@@ -1,0 +1,5 @@
+<div>
+    <h3>Composant parent</h3>
+    <p>Nombre reçu de la part de mon enfant : {{numberReceveidFromChild}}</p>
+</div>
+    <app-child (numberFromChild)="catchValue($event)" ></app-child>
