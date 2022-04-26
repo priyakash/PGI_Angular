@@ -22,7 +22,7 @@
                     <hr>
                     <h3 class="h6 font-weight-semibold opacity-70 pt-4 pb-2">Or using form below</h3>
                     <form  #loginForm="ngForm" id="formmogin" (ngSubmit)="loginuser()" class="needs-validation" novalidate="">
-                        <!-- <app-nav-bar [username]="username"></app-nav-bar> -->
+                       
                         <small class="text-danger">{{msg}}</small>
                         <div class="input-group form-group">
                             <div class="input-group-prepend"><span class="input-group-text">
@@ -53,7 +53,7 @@
                         <hr class="mt-4">
                         <div class="text-right pt-4">
                             <button class="btn btn-primary" [disabled]="loginForm.invalid" type="submit">Sign In</button>
-                            <!-- <app-nav-bar [loginusername]="loginusername"></app-nav-bar> -->
+                           
                         </div>
                     </form>
                 </div>

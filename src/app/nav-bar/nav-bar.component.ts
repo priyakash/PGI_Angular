@@ -14,27 +14,21 @@ import { LoginauthService } from '../service/loginauth.service';
 })
 export class NavBarComponent implements OnChanges {
 
-  @Input() username: string = "Priya";
+
   @Input() loginusername = "Login";
-public   loggedIn: boolean | undefined;
+  public loggedIn: boolean | undefined;
 
   ngOnChanges(changes: SimpleChanges) {
-    // console.log("val");
-    //  this.updateData();
+
     console.log(changes)
-    // changes.prop contains the old and the new value...
+
   }
 
   constructor(private loginauth: LoginService) {
-    // this.loginusername= loginauth.currentuser;
-    // console.log(this.loginusername,"in navbar")
+
   }
 
-  // constructor(private loginauth :LoginauthService) {
-  //     console.log("curre"+loginComponent.loginusername);
-  // this.loginusername=loginComponent.loginusername;
 
-  // }
 
 
 
@@ -49,11 +43,6 @@ public   loggedIn: boolean | undefined;
   }
 
 
-  //   updateData()
-  // {
-  //   this.loginusername= this.loginauth.currentuser;
-  //   console.log("nav bar",this.loginauth.currentuser) ;
-  // }
 
 
   authenticated() {

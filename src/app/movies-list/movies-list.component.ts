@@ -21,8 +21,7 @@ export class MoviesListComponent implements OnInit, AfterViewInit {
 
   @ViewChild(LoginService, { static: false }) loginService: LoginService | undefined;
   filtersLoaded: Promise<boolean> | undefined;
-  // @ViewChild(LoginComponent)  loginComponent: LoginComponent | undefined;
-  //navBarComponent:NavBarComponent | undefined;
+ 
 
   public movies: Movie[] = [];
 
@@ -41,23 +40,14 @@ export class MoviesListComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-  //  this.loginComponent?.loginuser();
+  
     this.getMovies();
     this.getuser();
     console.log("beforeViewInit!", this.loginauth?.curuser);
     this.serviceuser=this.loginauth?.curuser;
     console.log( this.serviceuser," this.serviceuser")
 
-    // this.loginauth?.getEmitter().subscribe((currentuser) => {
-    //   // if (currentuser) {
-    //      this.loggedIn = true; 
-    //     // }
-    //   this.loginusername = "welcome " + currentuser + "!";
-    //   console.log("Component is notified of successfull login i movies!");
 
-    //   console.log("Component is notified of successfull login i movies!", currentuser,this.loggedIn);
-
-    // });
 
   }
   ngAfterViewInit(): void {
@@ -73,9 +63,9 @@ export class MoviesListComponent implements OnInit, AfterViewInit {
 
   public getuser() {
     this.getFiltersSubscription = this.loginauth?.getEmitter().subscribe((currentuser) => {
-      // if (currentuser) {
+     
       this.loggedIn = true;
-      // }
+     
       this.loginusername = "welcome " + currentuser + "!";
       console.log("ngAfterViewInit 1");
 
@@ -83,7 +73,7 @@ export class MoviesListComponent implements OnInit, AfterViewInit {
     
       console.log( this.filtersLoaded," this.filtersLoaded")
       this.filtersLoaded =   Promise.resolve(true);
-     // return this.loginusername;
+     
       
     });
   }
@@ -169,20 +159,7 @@ export class MoviesListComponent implements OnInit, AfterViewInit {
   }
 
 
-  // public onUpdateMovie(movie: Movie): void {
-
-  //   console.log(movie,"movie")
-  //   this.movieService.updateMovie(movie).subscribe(
-  //     (response: Movie) => {
-  //       console.log("response",response);
-  //       this.getMovies();
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-
-  // }
+ 
 
   public onDeleteMovie(id: number): void {
 
